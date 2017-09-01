@@ -64,12 +64,26 @@ function domString(products){
 		productString+=`<h2 class="price">${productCard.price}</h2>`;
 		productString+=`<h2 class="category_id">${productCard.categoryName}</h2>`;
 		productString+=`</div>`;
-			if(seasonDiscount === "Winter"){
-				salePrice 
-			}
 	}
 	writeToDom(productString);
 }
+
+function changeToDiscountedPrice () {
+	selectList.addEventListener('select', discountPrice);
+}
+
+function discountPrice {
+	if(seasonDiscount.value === "Winter"){
+	 	=== ;
+	}
+		else (seasonDiscount.value === "Autumn") {
+			 === ;
+				}
+					else (seasonDiscount.value === "Spring") {
+						=== ;
+					}
+}
+				
 
 function writeToDom(theProductString){
 	var productContainerDiv = document.getElementById("product-container");
