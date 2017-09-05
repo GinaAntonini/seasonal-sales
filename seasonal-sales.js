@@ -1,9 +1,3 @@
-//I need a function that merges the two arrays. The function should loop through both arrays and match the corresponding category_id with the name of the department (Apparel, Furniture, Household), then use splice to replace the category_id with the department name. 
-
-// var productsArray = [];
-// var categoriesArray = [];
-// var newArray = [];
-
 function executeThisCodeAfterProductsLoads(){
 	var productsData = JSON.parse(this.responseText).products;
 	getCategories(productsData);
@@ -68,22 +62,25 @@ function domString(products){
 	writeToDom(productString);
 }
 
-function changeToDiscountedPrice () {
-	selectList.addEventListener('select', discountPrice);
+//This is my function for the season discount. 
+
+var price = [];
+var seasonDiscountPrice = [];
+var productPrice = document.getElementsByClassName("price");
+var selectedSeason = document.getElementById("selectList");
+var season = selectedSeason.value;
+
+function replaceRegularPriceWithDiscountPrice(products, categories){
+	for (var i = 0; i < products.length; i++){
+		if (season === products[i].seasonDiscount) {
+			seasonDiscountPrice = products[i].salePrice;
+	        productPrice[i].innerHTML = seasonDiscountPrice;  
+	    } else (productPrice[i].innerHTML = price[i]);
+	}
 }
 
-function discountPrice {
-	if(seasonDiscount.value === "Winter"){
-	 	=== ;
-	}
-		else (seasonDiscount.value === "Autumn") {
-			 === ;
-				}
-					else (seasonDiscount.value === "Spring") {
-						=== ;
-					}
-}
-				
+selectedSeason.addEventListener("change", replaceRegularPriceWithDiscountPrice);
+
 
 function writeToDom(theProductString){
 	var productContainerDiv = document.getElementById("product-container");
